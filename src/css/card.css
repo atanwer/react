@@ -1,0 +1,27 @@
+.card{
+    background-color: rgb(231, 219, 219);
+    margin: 5px;
+
+    padding: 20px;
+
+
+}
+.card span{
+    color: black;
+    background-color: rgb(231, 219, 219);
+
+    
+}
+.card div{
+    color: black;
+    background-color: rgb(231, 219, 219);
+    
+}
+.images{
+    width: 400px;
+    height: 200px;
+}
+.images img{
+    width: 100%;
+    height: 100%;
+}
