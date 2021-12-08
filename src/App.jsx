@@ -8,7 +8,7 @@ function App() {
                 <div className="slotContainer">
                     <SlotM x="😘" y="😘" z="😘" />
                     <SlotM x="😜" y="😘" z="😘" />
-                    <SlotM x="😘" y="😘" z="👀✔" />
+                    <SlotM x="😘" y="😘" z="👀" />
                 </div>
             </div>
 
