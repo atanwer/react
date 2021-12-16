@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
-const App = ()=>{
-    const [bg,setBg] = useState('red');
-    const [text,setText] = useState("CLICK ME");
-    const changeBgColor = ()=>{
-        setBg('yellow');
-        setText('DOUBLE CLICK ME');
+const App = () => {
+    let [text, setText] = useState();
+    let onChange = (e) => {
+        text = e.target.value;
     }
-    const changeAgain = ()=>{
-        setBg('red');
-        setText(' CLICK ME');
+    let onClick = () => {
+        setText(text);
+        document.getElementById('greeting').value = '';
+    }
 
-    }
     return (
         <>
-            <button style={{
-                backgroundColor : bg
-            }} onClick={changeBgColor} onDoubleClick={changeAgain}>{text}</button>
+            <h2>Hello {text}</h2>
+            <div id="form">
+                <input id="greeting" type='text' onChange={onChange}></input>
+                <button onClick={onClick} >Click Me</button>
+            </div>
         </>
     );
 };
