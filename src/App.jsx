@@ -1,12 +1,14 @@
-import React from "react";
-function App() {
-    function print(){
-        alert("hello  I akalesh tanwer");
+import React, { useState } from "react";
+import './css/index.css';
+const App = ()=> {
+    const [count , setdata] = useState(0) ;
+    const IncreaseValue = ()=>{
+         setdata(count + 1);
     }
     return (
         <>
-            <h1>Learning click event.</h1>
-            <button  onClick={print}>Click Me</button>
+            <h1>{count}</h1>
+            <button  onClick={IncreaseValue}>Click Me</button>
         </>
     )
 };
