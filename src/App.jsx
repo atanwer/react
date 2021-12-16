@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import './css/index.css';
 const App = ()=> {
-    const [count , setdata] = useState(0) ;
-    const IncreaseValue = ()=>{
-         setdata(count + 1);
+    const [time , setdata] = useState(new Date().toLocaleTimeString()) ;
+    const GetTime = ()=>{
+         setdata(new Date().toLocaleTimeString());
     }
     return (
         <>
-            <h1>{count}</h1>
-            <button  onClick={IncreaseValue}>Click Me</button>
+            <h1>{time}</h1>
+            <button  onClick={GetTime}>Get Time</button>
         </>
     )
 };
