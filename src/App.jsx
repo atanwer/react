@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import './css/index.css';
-const App = ()=> {
-    const [time , setdata] = useState(new Date().toLocaleTimeString()) ;
-        setInterval(()=>{
-            setdata(new Date().toLocaleTimeString());
-        },1000)
+
+const App = ()=>{
+    const [bg,setBg] = useState('red');
+    const [text,setText] = useState("CLICK ME");
+    const changeBgColor = ()=>{
+        setBg('yellow');
+        setText('DOUBLE CLICK ME');
+    }
+    const changeAgain = ()=>{
+        setBg('red');
+        setText(' CLICK ME');
+
+    }
     return (
         <>
-            <h1>{time}</h1>
+            <button style={{
+                backgroundColor : bg
+            }} onClick={changeBgColor} onDoubleClick={changeAgain}>{text}</button>
         </>
-    )
+    );
 };
-
 
 export default App;
