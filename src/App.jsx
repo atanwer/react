@@ -1,17 +1,12 @@
 import React from "react";
-import SlotM from "./Components/SlotM";
 function App() {
+    function print(){
+        alert("hello  I akalesh tanwer");
+    }
     return (
         <>
-            <h1>🎰 Welcome to <span style={{ color: "red" }}> Slot Machine Game </span> 🎰 </h1>
-            <div className="container">
-                <div className="slotContainer">
-                    <SlotM x="😘" y="😘" z="😘" />
-                    <SlotM x="😜" y="😘" z="😘" />
-                    <SlotM x="😘" y="😘" z="👀" />
-                </div>
-            </div>
-
+            <h1>Learning click event.</h1>
+            <button  onClick={print}>Click Me</button>
         </>
     )
 };
