@@ -11,38 +11,42 @@ const App = () => {
     const onChangeEvent = (e) => {
         setfullName((prevValue) => {
             const {name , value}= e.target;
-            if (name === "firstName") {
-                return {
-                    firstName: value,
-                    lastName: prevValue.lastName,
-                    email: prevValue.email,
-                    phone: prevValue.phone
-                }
-            } else if (name === "lastName") {
-                return {
-                    firstName: prevValue.firstName,
-                    lastName: value,
-                    email: prevValue.email,
-                    phone: prevValue.phone
-
-                }
-            } else if (name === "email") {
-                return {
-                    firstName: prevValue.firstName,
-                    lastName: prevValue.lastName,
-                    email: value,
-                    phone: prevValue.phone
-
-                }
-            } else if (name === "phone") {
-                return {
-                    firstName: prevValue.firstName,
-                    lastName: prevValue.lastName,
-                    email: prevValue.email,
-                    phone: value
-
-                }
+            return{
+                ...prevValue,
+                [name]:value,
             }
+            // if (name === "firstName") {
+            //     return {
+            //         firstName: value,
+            //         lastName: prevValue.lastName,
+            //         email: prevValue.email,
+            //         phone: prevValue.phone
+            //     }
+            // } else if (name === "lastName") {
+            //     return {
+            //         firstName: prevValue.firstName,
+            //         lastName: value,
+            //         email: prevValue.email,
+            //         phone: prevValue.phone
+
+            //     }
+            // } else if (name === "email") {
+            //     return {
+            //         firstName: prevValue.firstName,
+            //         lastName: prevValue.lastName,
+            //         email: value,
+            //         phone: prevValue.phone
+
+            //     }
+            // } else if (name === "phone") {
+            //     return {
+            //         firstName: prevValue.firstName,
+            //         lastName: prevValue.lastName,
+            //         email: prevValue.email,
+            //         phone: value
+
+            //     }
+            // }
         })
     }
     const onSubmit = (e) => {
