@@ -1,28 +1,39 @@
 import React, { useState } from "react";
 
 const App = () => {
-    let [firstName, setFirstName] = useState();
-    let [secondName, setSecondName] = useState();
-    let changeFirstName = (e) => {
-        firstName = e.target.value;
-    }
-    let changeSecondName = (e)=>{
-        secondName = e.target.value;
+    let [fullName, setfullName] = useState({
+        firstName: "",
+        lastName: ""
+    });
 
+    let onChangeEvent = (e) => {
+        setfullName((prevValue) => {
+            if (e.target.name === "firstName") {
+                return {
+                    firstName: e.target.value,
+                    lastName: prevValue.lastName
+                }
+            } else if(e.target.name === "lastName"){
+                return {
+                    firstName: prevValue.firstName,
+                    lastName: e.target.value
+                }
+            }
+        })
     }
-    let onClick = (e) => {
+    let onSubmit = (e) => {
         e.preventDefault();
-        setFirstName(firstName);
-        setSecondName(secondName);
+        console.log(fullName);
     }
 
     return (
         <>
-            <h2>Hello {firstName} {secondName}</h2>
-            <form id="form" onSubmit={onClick}>
-                <input className="greeting" type='text' onChange={changeFirstName} placeholder="Enter Your First Name"></input>
-                <input className="greeting" type='text' placeholder="Enter Your Second Name" onChange={changeSecondName}></input>
-                <button  >Click Me</button>
+            <h2>Hello {fullName.firstName}  {fullName.lastName}</h2>
+            <form id="form" onSubmit={onSubmit}>
+                <input className="greeting" type='text' onChange={onChangeEvent} placeholder="Enter Your First Name" name="firstName" value={fullName.firstName} ></input>
+                <input className="greeting" type='text' placeholder="Enter Your Last Name" onChange={onChangeEvent} name='lastName' value={fullName.lastName}></input>
+                <br />
+                <button type="submit">Click Me</button>
             </form>
         </>
     );
