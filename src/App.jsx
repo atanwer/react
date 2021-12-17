@@ -1,27 +1,51 @@
 import React, { useState } from "react";
 
 const App = () => {
-    let [fullName, setfullName] = useState({
+    const [fullName, setfullName] = useState({
         firstName: "",
-        lastName: ""
+        lastName: "",
+        email: "",
+        phone: "",
     });
 
-    let onChangeEvent = (e) => {
+    const onChangeEvent = (e) => {
         setfullName((prevValue) => {
-            if (e.target.name === "firstName") {
+            const {name , value}= e.target;
+            if (name === "firstName") {
                 return {
-                    firstName: e.target.value,
-                    lastName: prevValue.lastName
+                    firstName: value,
+                    lastName: prevValue.lastName,
+                    email: prevValue.email,
+                    phone: prevValue.phone
                 }
-            } else if(e.target.name === "lastName"){
+            } else if (name === "lastName") {
                 return {
                     firstName: prevValue.firstName,
-                    lastName: e.target.value
+                    lastName: value,
+                    email: prevValue.email,
+                    phone: prevValue.phone
+
+                }
+            } else if (name === "email") {
+                return {
+                    firstName: prevValue.firstName,
+                    lastName: prevValue.lastName,
+                    email: value,
+                    phone: prevValue.phone
+
+                }
+            } else if (name === "phone") {
+                return {
+                    firstName: prevValue.firstName,
+                    lastName: prevValue.lastName,
+                    email: prevValue.email,
+                    phone: value
+
                 }
             }
         })
     }
-    let onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
         console.log(fullName);
     }
@@ -29,10 +53,13 @@ const App = () => {
     return (
         <>
             <h2>Hello {fullName.firstName}  {fullName.lastName}</h2>
+            <p>{fullName.email}</p>
+            <p>{fullName.phone}</p>
             <form id="form" onSubmit={onSubmit}>
                 <input className="greeting" type='text' onChange={onChangeEvent} placeholder="Enter Your First Name" name="firstName" value={fullName.firstName} ></input>
                 <input className="greeting" type='text' placeholder="Enter Your Last Name" onChange={onChangeEvent} name='lastName' value={fullName.lastName}></input>
-                <br />
+                <input className="greeting" type='email' placeholder="Enter Your Email" onChange={onChangeEvent} name='email'  ></input>
+                <input className="greeting" type='number' placeholder="Enter Your Mobile Number" onChange={onChangeEvent} name='phone' ></input>
                 <button type="submit">Click Me</button>
             </form>
         </>
