@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const App = () => {
     let [value, setValue] = useState(0);
@@ -22,8 +26,11 @@ const App = () => {
                 <div className="center-div">
                     <h1>{value}</h1>
                     <div className="button-container">
-                        <button className="incbutton" onClick={increaseValue}>Increase</button>
-                        <button className="decbutton" onClick={decreaseValue}>Decrease</button>
+                        <Tooltip title="Increase value">
+                            <Button variant="contained" className="incbutton" onClick={increaseValue}><AddIcon /></Button></Tooltip>
+                        <Tooltip title="Decrease Value">
+                            <Button variant="contained" className="decbutton" onClick={decreaseValue}><RemoveIcon /></Button>
+                        </Tooltip>
                     </div>
                 </div>
             </div>
