@@ -16,10 +16,12 @@ body{
 .center-div{
     background-color: rgb(224, 232, 235);
     width: 25%;
-    height: auto;
+    height: 400px;
+    box-shadow: 0px 0px 42px 10px rgb(0,0,0,0.5);
     margin: 30px 0px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     border-radius: 15px;
 }
@@ -29,61 +31,22 @@ h1{
     display: block;
     text-align: center;
     width: 100%;
+    margin-top: -30px;
 }
-.itemadder{
+.button-container {
+    width: 100%;
     display: flex;
     justify-content: space-around;
-    width: 100%; 
 }
-.itemadder input{
-    text-align: center;
-    outline: none;
-    color: purple;
-    border: none;
-    background-color: transparent;
-    border-bottom: 2px solid purple;
-    font-size: 20px;
-    width: 60%;
-    padding: 10px 0;
-}
-.itemadder button{
+.button-container button{
+    color:white;
+    user-select: none;
+    border:none;
+    outline:none;
     background-color: purple;
-    width: 40px;
-    height: 40px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 50%;
-    color: white;
     font-size: 20px;
-    font-weight: bolder;
+    padding: 10px;
+    border-radius: 3px;
     cursor: pointer;
-
-}
-.itemadder button:hover{
-    background-color: green;
-}
-.items{
-    width: 100%;
-    min-height: 60vh;
-}
-.item{
-    width: 100%;
-    display: flex;
-    justify-content: left;
-}
-.item button{
-    background-color: purple;
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 50%;
-    margin: 10px 20px 0px 20px;
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    cursor: pointer;
-
-}
-.item button:hover{
-    background-color: red;
+    
 }
