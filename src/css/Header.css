@@ -1,0 +1,17 @@
+.logo {
+    background-color: rgb(226, 228, 117);
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+.logo span{
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    padding-left: 10px;
+}
+
+.logo span span {
+    color: white;
+}

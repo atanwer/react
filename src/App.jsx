@@ -1,22 +1,54 @@
-import React from "react";
-import Accordion from './Accordion'
-import { quesAns } from "./AccordionApi";
+import React, { useState } from "react";
+import Header from "./components/Header";
+import CreateNotes from "./components/CreateNotes";
+import Note from "./components/Note";
 
 
 const App = () => {
+    const [note, setNote] = useState({
+        title: '',
+        content: ''
+    });
+    const [allNotes, setAllNotes] = useState([])
+    const createNotes = (e) => {
+        const { name, value } = e.target;
+        setNote((oldValue) => {
+            return {
+                ...oldValue,
+                [name]: value
+            }
+        })
+    }
+    const addNotes = () => {
+        setAllNotes((preValue) => {
+            return [...preValue, note]
+        })
+        setNote({
+            title:'',
+            content:''
+        })
+    }
+    const deleteNote = (id) => {
+        setAllNotes(oldNotes => {
+            return oldNotes.filter((notes,index) => index !==id);
+        })
+    }
     return (
         <>
-            <div className="main-div">
-                <div className="center-div">
-                    <h1>Interview questions and answers for ReactJS</h1>
-                    {quesAns.map((item) => {
-                        return <Accordion className="item" key={item.id} {...item} />
-                    })
-                    }
-                        </div>
+            <Header />
+            <CreateNotes 
+            passCreateNoteFunc={createNotes} 
+            passAddNoteFunc={addNotes}
+            title={note.title}
+            content={note.content}
+             />
+            <div className="note-box">
+                {allNotes.map((note, index) => {
+                    return <Note key={index} index={index} title={note.title} content={note.content} passDeleteFunc={deleteNote} />
+                })}
             </div>
-            </>
-            )
+        </>
+    );
 };
 
-            export default App;
+export default App;
